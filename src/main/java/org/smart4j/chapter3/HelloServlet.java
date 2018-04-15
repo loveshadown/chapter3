@@ -15,21 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 public class HelloServlet extends HttpServlet{
 	/**
 	 * @author chenkang
-	 * 鍏充簬搴忓垪鍖�
-	 * 1.濡傛灉鏌愪釜绫昏兘澶熻搴忓垪鍖栵紝鍏跺瓙绫讳篃鍙互琚簭鍒楀寲;
-	 * 2.瀵硅薄鐨勫簭鍒楀寲灏辨槸鍙互灏嗗璞″簭鍒楀寲涔嬪悗渚夸簬鍦ㄧ綉缁滀笂浼犺緭锛�
-	 * 鎴栬�呬繚瀛樺埌鐗╃悊浠嬭川涓婏紱姣旀柟璇翠綘鍋氫簡涓父鎴忥紝浣犵帺浜嗕竴鍗婁綘鎯冲瓨鐩橈紝閭ｄ箞瀛樼洏锛�
-	 * 灏卞彲浠ョ畝鍗曠悊瑙ｄ负灏嗗綋鍓嶆父鎴忚繍琛岀殑鎵�鏈夊璞″簭鍒楀寲淇濆瓨鍒扮‖鐩樹笂锛岀劧鍚庝綘鍐嶆鐜╃殑鏃跺�欙紝
-	 * 浣犺鍙栧瓨妗ｏ紝灏辨槸鍙嶅簭鍒楀寲锛屸�滃啀寮勫嚭杩欎簺瀵硅薄鍑烘潵鈥濓紝缁х画杩愯;
+	 * 关于序列化
+	 * 1.如果某个类能够被序列化，其子类也可以被序列化;
+	 * 2.对象的序列化就是可以将对象序列化之后便于在网络上传输，
+	 * 或者保存到物理介质上；比方说你做了个游戏，你玩了一半你想存盘，那么存盘，
+	 * 就可以简单理解为将当前游戏运行的所有对象序列化保存到硬盘上，然后你再次玩的时候，
+	 * 你读取存档，就是反序列化，“再弄出这些对象出来”，继续运行;
 	 */
 	private static final long serialVersionUID = 1L;
 
 	
 	/**
-	 * 1.缁ф壙httpservlet绫伙紝璁╁畠鎴愪负涓�涓猄ervlet绫�
-	 * 2.瑕嗙洊鐖剁被鐨刣oGet鏂规硶锛岀敤浜庢帴鍙梘et璇锋眰
-	 * 3.鑾峰彇褰撳墠绯荤粺鏃堕棿骞舵斁鍦℉ttpServletRequest瀵硅薄涓紝鏈�鍚庤浆鍙戝埌椤甸潰
-	 * 4.
+	 * 1.继承httpservlet类，让它成为一个Servlet类
+	 * 2.覆盖父类的doGet方法，用于接受get请求
+	 * 3.获取当前系统时间并放在HttpServletRequest对象中，最后转发到页面
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req,HttpServletResponse resp)
